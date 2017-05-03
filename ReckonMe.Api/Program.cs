@@ -10,6 +10,7 @@ namespace ReckonMe.Api
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseUrls("http://localhost:5000")
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .UseApplicationInsights()

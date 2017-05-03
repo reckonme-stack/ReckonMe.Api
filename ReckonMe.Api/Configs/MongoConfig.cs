@@ -2,9 +2,9 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Conventions;
 
-namespace ReckonMe.Api
+namespace ReckonMe.Api.Configs
 {
-    public static class MongoConfigurator
+    public static class MongoConfig
     {
         private static bool _initialized;
         public static void Initialize()
