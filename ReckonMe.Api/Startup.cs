@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -35,7 +37,13 @@ namespace ReckonMe.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOptions();
-            services.AddMvc();
+            services.AddMvc(options =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+                options.Filters.Add(new AuthorizeFilter(policy));
+            });
             services.AddCors();
 
             services.AddSingleton<IMapper>(AutoMapperConfig.Initialize());
@@ -47,7 +55,7 @@ namespace ReckonMe.Api
             services.Configure<JwtIssuerOptions>(Configuration.GetSection(nameof(JwtIssuerOptions)));
 
             var mongoSettings = Configuration.GetSection("MongoDb");
-            services.AddMongo(mongoSettings["Dev"], mongoSettings["Database"]);
+            services.AddMongo(mongoSettings["ConnectionString"], mongoSettings["Database"]);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory,

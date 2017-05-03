@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ReckonMe.Api.Dtos;
 using ReckonMe.Api.Services.Abstract;
@@ -16,6 +17,7 @@ namespace ReckonMe.Api.Controllers
             _identityService = identityService;
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody]UserLoginDto userDto)
         {
@@ -33,6 +35,7 @@ namespace ReckonMe.Api.Controllers
             return Ok(token);
         }
 
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody]UserRegisterDto userDto)
         {
