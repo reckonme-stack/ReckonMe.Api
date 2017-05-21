@@ -26,7 +26,7 @@ namespace ReckonMe.Api.Managers.Concrete
             }
 
             user.Password = _passwordHasher.HashPassword(user.Password);
-            await _userRepository.AddUserAsync(user).ConfigureAwait(false);
+            await _userRepository.CreateUserAsync(user).ConfigureAwait(false);
             return true;
         }
 

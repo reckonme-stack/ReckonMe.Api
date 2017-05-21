@@ -39,7 +39,8 @@ namespace ReckonMe.Api.Services.Concrete
 
         public async Task<string> LoginAsync(UserLoginDto userDto)
         {
-            var user = await _userManager.FindAsync(userDto.Username, userDto.Password).ConfigureAwait(false);
+            var user = await _userManager.FindAsync(userDto.Username, userDto.Password)
+                .ConfigureAwait(false);
             if (user == null)
             {
                 return null;

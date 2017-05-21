@@ -13,7 +13,6 @@ namespace ReckonMe.Api.Cryptography.Concrete
 
         public string HashPassword(string password)
         {
-
             byte[] salt;
             byte[] buffer2;
             if (password == null)
