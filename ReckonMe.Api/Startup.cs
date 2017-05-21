@@ -49,8 +49,12 @@ namespace ReckonMe.Api
             services.AddSingleton<IMapper>(AutoMapperConfig.Initialize());
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
             services.AddScoped<IUserManager, UserManager>();
+
             services.AddScoped<IIdentityService, IdentityService>();
+            services.AddScoped<IWalletService, WalletService>();
+
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IWalletRepository, WalletRepository>();
 
             services.Configure<JwtIssuerOptions>(Configuration.GetSection(nameof(JwtIssuerOptions)));
 
