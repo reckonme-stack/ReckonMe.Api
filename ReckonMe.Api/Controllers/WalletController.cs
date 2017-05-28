@@ -32,7 +32,7 @@ namespace ReckonMe.Api.Controllers
             return Ok(wallet);
         }
 
-        [HttpPost("add")]
+        [HttpPost]
         [Validate]
         public async Task<IActionResult> Add([FromBody]AddWalletDto walletDto)
         {
@@ -41,7 +41,7 @@ namespace ReckonMe.Api.Controllers
             return NoContent();
         }
 
-        [HttpPut("edit/{id}")]
+        [HttpPut("{id}")]
         [Validate]
         public async Task<IActionResult> Edit(string id, [FromBody]EditWalletDto walletDto)
         {
@@ -50,7 +50,7 @@ namespace ReckonMe.Api.Controllers
             return NoContent();
         }
 
-        [HttpDelete("remove/{id}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Remove(string id)
         {
             await _walletService.RemoveWallet(id)
