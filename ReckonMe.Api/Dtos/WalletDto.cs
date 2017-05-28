@@ -9,5 +9,6 @@ namespace ReckonMe.Api.Dtos
         public string Description { get; set; }
         public string Owner { get; set; }
         public IEnumerable<string> Members { get; set; }
+        public IEnumerable<ExpenseDto> Expenses { get; set; }
     }
 }

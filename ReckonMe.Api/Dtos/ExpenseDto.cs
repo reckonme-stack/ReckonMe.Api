@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ReckonMe.Api.Models
+namespace ReckonMe.Api.Dtos
 {
-    public class Expense
+    public class ExpenseDto
     {
         public string Name { get; set; }
         public string Description { get; set; }

@@ -8,8 +8,8 @@ namespace ReckonMe.Api.Dtos
         [Required]
         public string Name { get; set; }
         public string Description { get; set; }
-        [Required]
         public string Owner { get; set; }
         public IEnumerable<string> Members { get; set; }
+        public IEnumerable<ExpenseDto> Expenses { get; set; }
     }
 }

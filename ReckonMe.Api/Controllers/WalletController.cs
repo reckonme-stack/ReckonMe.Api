@@ -36,6 +36,7 @@ namespace ReckonMe.Api.Controllers
         [Validate]
         public async Task<IActionResult> Add([FromBody]AddWalletDto walletDto)
         {
+            walletDto.Owner = Username;
             await _walletService.AddWallet(walletDto)
                 .ConfigureAwait(false);
             return NoContent();
@@ -45,6 +46,7 @@ namespace ReckonMe.Api.Controllers
         [Validate]
         public async Task<IActionResult> Edit(string id, [FromBody]EditWalletDto walletDto)
         {
+            walletDto.Owner = Username;
             await _walletService.UpdateWallet(id, walletDto)
                 .ConfigureAwait(false);
             return NoContent();
