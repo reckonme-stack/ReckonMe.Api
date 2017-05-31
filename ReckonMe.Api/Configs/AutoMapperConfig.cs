@@ -14,6 +14,8 @@ namespace ReckonMe.Api.Configs
                     .ForMember(dest => dest.Id, o => o.ResolveUsing(src => src.Id.ToString()));
                 cfg.CreateMap<AddWalletDto, Wallet>();
                 cfg.CreateMap<EditWalletDto, Wallet>();
+                cfg.CreateMap<ExpenseDto, Expense>()
+                    .ReverseMap();
             })
             .CreateMapper();
     }
