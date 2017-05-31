@@ -77,18 +77,46 @@ Success response:
 ```
 [
   {
-    "id": "592ac92e1c6ac337885e71b9",
-    "name": "wallet1",
-    "description": "wallet1desc",
+    "id": "592ac92e1c6ads87668asd7a",
+    "name": "name",
+    "description": "description",
     "owner": "username",
-    "members": []
+    "members": [
+        "member"
+      ],
+    "expenses": [
+      {
+        "name": "expense",
+        "description": "description",
+        "value": 999.99,
+        "payer": "payer",
+        "date": "2017-06-22 00:00:00",
+        "members": [
+            "member"
+          ]
+      }
+      ]
   },
   {
-    "id": "592ac92e1c6ads87668asd7a",
-    "name": "wallet2",
-    "description": "wallet2desc",
+    "id": "592f1b5f72dbc60f9c6ec0c8",
+    "name": "name",
+    "description": "description",
     "owner": "username",
-    "members": []
+    "members": [
+        "member"
+      ],
+    "expenses": [
+      {
+        "name": "expense",
+        "description": "description",
+        "value": 999.99,
+        "payer": "payer",
+        "date": "2017-06-22 00:00:00",
+        "members": [
+            "member"
+          ]
+      }
+      ]
   }
 ]
 ```
@@ -104,11 +132,25 @@ Success response:
 * Body:
 ```
 {
-  "id": "592ac92e1c6ac337885e71b9",
-  "name": "wallet1",
-  "description": "wallet1desc",
-  "owner": "username",
-  "members": []
+  "id": "592f1b5f72dbc60f9c6ec0c8",
+	"name": "name",
+	"description": "description",
+	"owner": "username",
+	"members": [
+			"member"
+		],
+	"expenses": [
+		{
+			"name": "expense",
+			"description": "description",
+			"value": 999.99,
+			"payer": "payer",
+			"date": "2017-06-22 00:00:00",
+			"members": [
+					"member"
+				]
+		}
+		]
 }
 ```
 
@@ -119,7 +161,24 @@ Success response:
 Payload: 
 ```
 {
-
+	"Name": "name",
+	"Description": "description",
+	"Owner": "username",
+	"Members": [
+			"member"
+		],
+	"Expenses": [
+		{
+			"Name": "expense",
+			"Description": "description",
+			"Value": 999.99,
+			"Payer": "payer",
+			"Date": "2017-06-22 00:00:00",
+			"Members": [
+					"member"
+				]
+		}
+		]
 }
 ```
 
@@ -134,7 +193,24 @@ Success response:
 Payload: 
 ```
 {
-
+	"Name": "name",
+	"Description": "description",
+	"Owner": "username",
+	"Members": [
+			"member"
+		],
+	"Expenses": [
+		{
+			"Name": "expense",
+			"Description": "description",
+			"Value": 999.99,
+			"Payer": "payer",
+			"Date": "2017-06-22 00:00:00",
+			"Members": [
+					"member"
+				]
+		}
+		]
 }
 ```
 
