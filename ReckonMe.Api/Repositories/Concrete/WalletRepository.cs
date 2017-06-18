@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -17,7 +18,8 @@ namespace ReckonMe.Api.Repositories.Concrete
         }
 
         public async Task<IEnumerable<Wallet>> GetWalletsForUserAsync(string username)
-            => await _walletsCollection.Find(w => w.Owner == username).ToListAsync()
+            => await _walletsCollection.Find(w => w.Owner == username || w.Members.Contains(username))
+                .ToListAsync()
                 .ConfigureAwait(false);
 
         public async Task<Wallet> GetWalletAsync(ObjectId id)
