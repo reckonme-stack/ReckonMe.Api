@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using ReckonMe.Api.Dtos;
 using ReckonMe.Api.Models;
 
@@ -14,8 +15,10 @@ namespace ReckonMe.Api.Configs
                     .ForMember(dest => dest.Id, o => o.ResolveUsing(src => src.Id.ToString()));
                 cfg.CreateMap<AddWalletDto, Wallet>();
                 cfg.CreateMap<EditWalletDto, Wallet>();
+                cfg.CreateMap<Expense, ExpenseDto>()
+                    .ForMember(dest => dest.Id, o => o.ResolveUsing(src => src.Id.ToString()));
                 cfg.CreateMap<ExpenseDto, Expense>()
-                    .ReverseMap();
+                    .ForMember(dest => dest.Id, o => o.ResolveUsing(src => Guid.Parse(src.Id)));
             })
             .CreateMapper();
     }
